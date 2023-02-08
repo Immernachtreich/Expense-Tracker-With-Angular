@@ -17,8 +17,8 @@ export class LoginComponent {
     popupText?: string;
 
     form: FormGroup = new FormGroup({
-        email: new FormControl('', emailValidator),
-        password: new FormControl('', passwordValidator)
+        email: new FormControl(''),
+        password: new FormControl('')
     })
 
     constructor(private authenticationService: AuthenticationService, private router: Router, private authService: UsersService) { }

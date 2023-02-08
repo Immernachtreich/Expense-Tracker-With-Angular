@@ -1,6 +1,7 @@
 // Service Imports
 const bcrypt = require('bcrypt');
 const jwtServices = require('../services/jwtServices.js');
+const Joi = require('joi');
 
 //Model Imports
 const User = require('../models/users');
@@ -40,6 +41,26 @@ exports.postAddUser = async (req, res, next) => {
 exports.loginUser = async (req, res, next) => {
 
     const { email, password } = req.body;
+
+    const schema = Joi.object({
+        email: Joi.string().required().custom((value) => {
+            if(!value.includes('@')) {
+                throw 'email does not contain @';
+            }    
+        }),
+        password: Joi.string().min(5).required()
+    }).with('email', 'password');
+
+    try {   
+        await schema.validateAsync(req.body);
+    } catch(err) {
+        console.log(err.details);
+        if(err.details[0].type === 'string.min') {
+            res.status(404).json({ message: `${err.details[0].context.key} length incorrect` });
+            return;
+        }
+    }
+    
     try {
         const user = await User.findOne({ 'email': email });
 
