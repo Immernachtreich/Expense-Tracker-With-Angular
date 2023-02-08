@@ -1,0 +1,135 @@
+.popup-outer-div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    align-items: center;
+
+    div {
+        display: block;
+        margin: auto;
+        width: 40%;
+        margin-top: 10rem;
+
+        height: auto;
+
+        background-color: rgb(69, 69, 69);
+
+        border: 5px solid whitesmoke;
+
+        button {
+            float: right;
+            margin-right: 1rem;
+            margin-top: 1rem;
+
+            border: none;
+            background: none;
+
+            color: whitesmoke;
+            font-size: large;
+            font-weight: bolder;
+        }
+
+        button:hover {
+            font-size: larger;
+        } 
+
+        h3 {
+            display: inline-block;
+            background: none;
+            color: whitesmoke;
+            margin-left: 2rem;
+            margin-top: 1rem;
+            font-size: 30px;
+            height: 10%;
+        }
+
+        p {
+            color: whitesmoke;
+            margin-top: 2rem;
+            margin-left: 1rem;
+            word-wrap: break-word;
+            font-size: 20px;
+        }   
+    }
+}
+
+h1 {
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bolder;
+}
+
+.signup-form-div {
+    margin: 2rem auto;
+    border: 4px solid whitesmoke;
+    width: 30%;
+
+    position: relative;
+    top: 8%;
+
+    padding-bottom: 2rem;
+
+    h3 {
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    input {
+        display: block;
+        margin: auto;
+        background-color: rgb(35, 35, 96);
+        width: 80%;
+
+        border-radius: 5px;
+        border: 2px solid whitesmoke;
+
+        color: whitesmoke;
+        font-size: medium;
+    }
+
+    label {
+        display: block;
+        color: whitesmoke;
+        margin: 1rem;
+    }
+
+    a {
+        color: whitesmoke;
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+
+        text-decoration: none;
+    }
+
+    a:hover {
+        color:rgb(28, 137, 200);
+    }
+
+
+    button {
+        display: block;
+        margin: auto;
+
+        margin-top: 2rem;
+
+        background-color: rgb(35, 35, 96);
+        border-radius: 5px;
+        border: 2px solid whitesmoke;
+
+        color: white;
+        font-size: medium;
+
+        height: 2rem;
+        width: 7rem;
+    }
+
+    button:hover {
+        background-color: rgb(28, 137, 200);
+    }
+    
+}

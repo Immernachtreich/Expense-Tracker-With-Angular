@@ -1,0 +1,173 @@
+-------------------- Introduction --------------------
+
+Angular is a Single page frontend framework
+
+To create a new angular project 
+    Navigate to parent directory
+    run 'ng new [project name]'
+
+To start the development server
+    cd to [project name]
+    run 'ng serve' or 'ng serve --open' which localhost:4200
+
+The project is comprised of components. The main component is the App Component.
+Each component consists of 3 files:
+    app.component.ts --> Typescript file containing component class code
+    app.component.html --> The component template in HTML
+    app.component.css --> Styling file for the component
+
+To add Angular properties inside the html file, we use double curly braces {{ text goes here }}
+
+
+-------------------- Components --------------------
+
+To create a new component run 'ng generate component [folder/folder]'
+
+In the component file you always import Component symbol from the Angular core library and annotate the component class with @Component.
+@Component is a decorator function that specifies angular metadata for the component.
+
+The 3 metadata properties are:
+    selector: The tag that can be used to call the component.
+    templateUrl: The location of the component's template file.
+    styleUrls: The location of the component's private CSS styles.
+
+After a component has been created it needs to be added into the base app.component.html file or needs to be in some component which is then inside app.component.html file. Similiar to react.
+
+Interfaces are used for defining the type of data that a particular variable might hold. Mostly its used for objects.
+We keep them in seperate files and import them as we need.
+
+Pipes (|) are used in angular for data manipulation such as uppercase, lowercase, currency converstion etc. They are a good way to format strings.
+
+To make a two way data flow such as when a user types something on the input, that data is fed back to the class and then from class back to the user method (useState with onChange in react)
+
+[(ngModel)] is angular's two binding syntax. Lets say [(ngModel)]="hero.name" so whatever is being typed in the input will change the value of hero.name and similarly hero.name will reflect the input field. Sounds like it would cause an infinite loop but it wont. Kind of like react with value={ hero.name } and onChange={ setHeroName(e.target.value) }
+[(ngModel)] is not avaliable by default, you have to import it in the FormsModule.
+
+The imports array in app.module.ts contains the list of modules that the app needs.
+
+
+-------------------- Looping & Event Listeners & Conditonals --------------------
+
+*ngFor="[for loop condition]" is used for iterating arrays inside an element. All subsequent elements get access to that property.
+
+*ngIf="[some if condition]" is used for checking the condition, if condition is null the subsequent component is not displayed.
+
+Event listeners in angular is done by using (click) or (hover) or (anyEvent) on the particular element.
+
+Angular can help dynamically change classes of components. Syntax for that is [class.someCSSClass]="some condition" (Square brackets are needed).
+
+
+-------------------- Inputs --------------------
+
+Inputs can be passed onto components using [varName] when calling said component in another file.
+For eg: <app-hero-detail [hero]="selectedHero"  /> where selectedHero is a variable name.
+Works basically like props did in react.
+This is angular's one-way data binding 
+
+
+-------------------- Services --------------------
+
+Services are a way for fetching data from a database or some files. Usually fetching data is async hence we seperate these network calls using services.
+Services needs to be registered using a provider.
+Dont call services using constructors. Instead use ngOnInit() function to call services.
+ngOnInit() works just like useEffect does with react. Its a callback function that gets called once the DOM is loaded.
+
+An Obseraveable is used for handling asynchronous data just like promises. But unlike promises it sends data in chunks. Basically it streams data instead of sending it all at once. It only sends data if there is someone subscribed to recieve the data.
+
+Services can be injected into components or into other services.
+
+
+-------------------- Routing --------------------
+
+To create a routing module: ng generate module app-routing --flat --module=app
+--flat: Tells angular to put it in src/app instead of its own directory.
+--module=app: Tells angular to register it in the imports array of the app module.
+
+Routes tell the Router which view to display when a user clicks a link or pastes a URL into the address bar.
+
+A typical Angular Route has two main properties:
+    1. path: A string that matches the url in the browser.
+    2. The component that the browser should create when navigating to this route.
+
+Some extra properties:
+    1. redirectTo: redirects url to specified path.
+    2. pathMatch:  
+
+@NgModule metadata initializes the router and starts listening for browser location changes.
+RouterModule.forRoot() configures the router with the app module
+We export RouterModule to be used anywhere in the application.
+
+routerLink can now be used with anchor tags to direct users to that link.
+
+To extract params from the URL we use route.snapshot which gives us the snapshot of the url to which we chain .paramsMap which contains the params and then we use the get() function to get the desired param.
+
+location object can be used to call various functions such as location.back() and location.forward(). It is useful in navigating throughout the page.
+
+Wildcard route is when the user try to navigate to a path that doesnt exist in your application. So you redirect them to some component. To define wildcard route we use { path: '**', component: component-nane }
+
+routes can have child routes such as /parent/child for that we define the children in the children property. This property is an array containing all the child routes. 
+{ 
+    path" '/parent', 
+    component: parent-component, 
+    children: [
+        { path: 'child1', component: child-component-1 },
+        { path: 'child2', compoennt: child-compoennt-2 }
+    ]
+}
+
+you can specify the relative paths to your components as well. 
+<a routerLink="../second-component">Relative Route to second component</a>
+you can also navigate to relative paths in components using NavigationExtra class and using .navigate() function to navigate.
+
+route guards are used to stop users from navigating to certain routes without proper authorization.
+
+-------------------- HTTP --------------------
+
+First import the HttpClientModule from '@angular/common/http' in app.module.ts file.
+Then add the HttpClientModule to the imports array in app.module.ts file.
+
+we can make get, put, patch, post and delete requests using http.
+
+A subject in an Obseraveable is a source of an Obseraveable as well as an Obseraveable itself. You can subscribe to Subjects as well.
+
+-------------------- Form Validation --------------------
+
+There's two types of forms:
+    - Reactive
+    - Template Driven
+Template driven forms are bounded by ngModel directive while reactive forms use FormControl and Formgroups for two way binding.
+
+To implement form validation we have to assign a template variable like #name="ngModel" and bind it to ngModel as such. Now we can add form validations on it
+
+To dynamically change classes we can also use [class.classname]="condition". This will add or remove classes dynamically.
+
+Pipes --
+Lazy Loading --
+Standalone Componernts --
+Dependecy injection --
+Routing --
+guards -- 
+services --
+rxjs --
+
+Change Detection - Onpush--
+trackby for ngfor--
+Form Validation --
+
+Subject vs behaviour subject
+Subscription
+
+debounce time
+throttle time
+combiner latest
+filter
+catchError
+timeout
+distinct until changed
+take
+switch map
+
+async pipe
+
+// Backend
+joy validation

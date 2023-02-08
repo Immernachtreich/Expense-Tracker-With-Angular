@@ -1,0 +1,80 @@
+.Main-Ordered-List {
+    color: whitesmoke;
+    width: 40%;
+    margin: auto;
+    margin-top: 5rem;
+
+    padding: 1rem;
+    border: 3px solid whitesmoke;
+}
+
+.leaderboard-li {
+
+    margin: 1rem;
+    border-bottom: 2px solid whitesmoke;
+    padding: 10px 5px;
+    word-wrap: break-word;
+}
+
+.leaderboard-button-div {
+    position: relative;
+    display: inline-block;
+
+    margin-left: 2rem;
+}
+
+.view-expenses-button {
+
+    background-color: rgb(44, 44, 94);
+    color: whitesmoke;
+    font-family: inherit;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+    word-wrap: break-word;
+
+    width: 8rem;
+    height: 2rem;
+}
+
+.view-expenses-button:hover {
+    background-color: rgb(12, 142, 142);
+}
+
+
+/* User Expense Page */
+
+.user-expense-list {
+
+    color: whitesmoke;
+    list-style: none;
+    width: 70%;
+    margin-bottom: 1rem;
+    padding: 0;
+
+    /* border: 2px solid whitesmoke; */
+
+    padding: 1rem;
+    border: 3px solid whitesmoke;
+}
+
+.return-home-button {
+
+    margin: 0rem 0.8rem;
+    margin-top: 1rem;
+    font-family: inherit;
+    background-color: rgb(30, 30, 39);
+    color: whitesmoke;
+
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+    height: 5%;
+    width: 5rem;
+
+}
+
+.return-home-button:hover {
+
+    background-color: rgb(14, 190, 190);
+}

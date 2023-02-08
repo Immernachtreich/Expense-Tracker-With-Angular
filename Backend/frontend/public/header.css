@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap');
+
+.main-header {
+    background-color: rgb(44, 44, 94);
+    height: 5rem;
+    width: 100%;
+}
+
+.buy-premium-button {
+
+    margin: 1.2rem 0.8rem;
+    font-family: inherit;
+    background-color: rgb(30, 30, 39);
+    color: whitesmoke;
+
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+    height: 50%;
+}
+
+.buy-premium-button:hover {
+
+    background-color: rgb(14, 190, 190);
+}
+
+.logout-button {
+
+    margin: 1.2rem 0.8rem;
+    font-family: inherit;
+    background-color: rgb(30, 30, 39);
+    color: whitesmoke;
+
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+    height: 50%;
+    width: 5rem;
+
+}
+
+.logout-button:hover {
+
+    background-color: rgb(14, 190, 190);
+}
+
+.leaderboard-button {
+
+    margin: 1.2rem 0.8rem;
+    font-family: inherit;
+    background-color: rgb(30, 30, 39);
+    color: whitesmoke;
+
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+    height: 50%;
+    width: 7rem;
+
+}
+
+.leaderboard-button:hover {
+
+    background-color: rgb(14, 190, 190);
+}
+
+.generate-report-button {
+
+    margin: 1.2rem 0.8rem;
+    font-family: inherit;
+    background-color: rgb(30, 30, 39);
+    color: whitesmoke;
+
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+    height: 50%;
+    width: 7rem;
+}
+
+.generate-report-button:hover {
+    background-color: rgb(14, 190, 190);
+}
+
+@media only screen and (max-width: 600px) {
+
+    .buy-premium-button {
+
+        font-size: 50%;
+        width: 3rem;
+    }
+
+    .logout-button {
+
+        font-size: 50%;
+        width: 3rem;
+    }
+
+    .leaderboard-button {
+        font-size: 50%;
+        width: 5rem;
+    }
+
+    .generate-report-button {
+        font-size: 50%;
+        width: 4rem;
+    }
+}

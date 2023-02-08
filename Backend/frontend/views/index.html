@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="../public/main.css">
+        <link rel="stylesheet" href="../public/popupNotification.css">
+        <link rel="stylesheet" href="../public/header.css">
+        
+        <link rel="icon" href="https://www.clipartmax.com/png/middle/36-363115_green-dollar-symbol-png-transparent-image-green-dollar-sign-png.png" type="image/icon type">
+
+        <title> Expense Tracker </title>
+    </head>
+
+    <body class="Body">
+
+        <header class="main-header">
+
+            <div class="toggle-container" id="toggle-dark-mode-div" style="display: none;">
+                <label for="toggle" class="dark-mode-label">
+                    
+                </label>
+                <input type="checkbox" name="toggle" id="toggle" class="toggle-dark-mode">
+            </div>
+            
+            <button class="buy-premium-button" id="buy-premium-button"> Buy Premium </button>
+            <button class="logout-button" id="logout-button"> Logout </button>
+            <button class="leaderboard-button" id="leaderboard-button" style="display: none;"> Leaderboard </button>
+            <button class="generate-report-button" id="generate-report-button" style="display: none;"> Generate Report </button>
+
+        </header>
+        
+        <div class="Main-Div">
+
+            <h1 id="Main-Div-H1-Title" class="Main-Div-H1-Title"> Expense Tracker </h1>
+
+            <div class="Inner-Div">
+            <form action="" id="Main-Form" class="main-form">
+
+                <label for="Expense-Amount-Input" id="Expense-Amount-Label" class="Expense-Label"> Expense Amount </label>
+                <input type="number" name="Expense-Amount" id="Expense-Amount-Input" class="Form-Inputs">
+                 
+                <label for="Description-Input" id="Description-Label" class="Expense-Label"> Description </label>
+                <input type="text" name="Description" id="Description-Input" class="Form-Inputs">
+
+                <label for="Category-Input" id="Category-Label" class="Expense-Label"> Category </label>
+                <select id="Category-Input" class="Select-Inputs">
+
+                    <option value="Rent"> Rent </option>
+                    <option value="Movies"> Movies </option>
+                    <option value="Accesories"> Accesories </option>
+                    <option value="Clothes"> Clothes </option>
+
+                </select>
+            
+                <button type="submit" id="Submit-Button" class="submit-button"> Submit </button>
+            </form>
+
+            <div class="popup-container" id="popup-container">
+                <div class="popup" id="popup-inner-div">
+                    <button id="close">&times;</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+
+        <div class="List-Div">
+            <ul id="Main-List" class="Main-List">
+                <!-- <li class="Expense-List">
+                    <div class="list-text-div">
+                        Movies - Went to the Movies sadnafjnfnkfnksfnsfafsafafaasadadsasafnsjfnsdskjajdka - 5000
+                    </div>
+                    <div class="buttons-div">
+                        <button class="Edit-Button"> Edit </button>
+                        <button class="Delete-Button"> Delete </button>
+                    </div>
+                </li>
+                <li class="Expense-List">
+                    <div class="list-text-div">
+                        Movies - Went to the Movies - 5000
+                    </div>
+                    
+                    <div class="buttons-div">
+                        <button class="Edit-Button"> Edit </button>
+                        <button class="Delete-Button"> Delete </button>
+                    </div>
+                    
+                </li> -->
+            </ul>
+        </div>
+
+        <div id="page-buttons-div">
+            <!-- <button class="page-buttons"> 1 </button>
+            <button class="page-buttons"> 2 </button>
+            <button class="page-buttons"> 3 </button> -->
+        </div>
+
+    </body>
+
+    <!-- Axios Script -->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+    <!-- Razor Pay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- Main Script -->
+    <script src="../scripts/index.js"></script>
+
+</html>

@@ -1,0 +1,341 @@
+swagger: '2.0'
+
+info:
+  description: "This is the API routes for Expense Tracker"
+  version: '1.0.0'
+  title: 'Expense Tracker'
+
+host: 'localhost:5005'
+
+tags:
+  - name: 'Users'
+    description: 'Access to user login and singup'
+  
+  - name: 'Expenses'
+    description: 'Access to Expense items'
+
+schemes:
+  - 'http'
+  
+paths:
+  /user/add-user:
+    post:
+      tags:
+        - 'Users'
+      summary: 'Add a new user'
+      description: 'Add a new user'
+      operationId: signUpuser
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: "User's signup credentials"
+          required: true
+          schema:
+            $ref: '#/definitions/SignupCredentials'
+      responses:
+        '200':
+          description: 'User with this email already exists'
+          schema:
+            type: 'object'
+            properties:
+              alreadyExisting:
+                type: 'boolean'
+        '201':
+          description: 'User successfully added'
+          schema:
+            type: 'object'
+            properties:
+              alreadyExisting:
+                type: 'boolean'
+  
+  /user/login:
+    post:
+      tags:
+        - 'Users'
+      summary: 'Find an existing user'
+      description: 'Find an existing user'
+      operationId: loginUser
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: body
+          name: body
+          description: "User's login credentials"
+          required: true
+          schema:
+            $ref: '#/definitions/LoginCredentials'
+      responses:
+        '200':
+          description: 'Successfully Logged in'
+          schema:
+            $ref: '#/definitions/Login'
+        
+        '401':
+          description: 'Wrong Password'
+          schema:
+            $ref: '#/definitions/Login'
+            
+        '404':
+          description: 'User not found'
+          schema:
+            $ref: '#/definitions/Login'
+    
+  /expenses/add-expense:
+    post:
+      tags:
+        - 'Expenses'
+      summary: 'Add a new Expense'
+      description: 'Add a new Expense'
+      operationId: addExpense
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'header'
+          name: 'Authorization'
+          required: true
+          type: 'string'
+          
+        - in: 'body'
+          name: 'body'
+          description: 'Expense details'
+          required: true
+          schema:
+            $ref: '#/definitions/ExpenseDetails'
+      responses:
+        '201':
+          description: 'Successfully added the expense'
+          schema:
+            $ref: '#/definitions/ExpenseResponse'
+            
+        '401':
+          description: 'Unauthorized'
+        
+        default:
+          description: 'Something went wrong'
+  
+  /expenses/get-expenses:
+    get:
+      tags:
+        - 'Expenses'
+      summary: 'Get all expenses'
+      description: 'Get all user expenses'
+      operationId: getExpenses
+      consumes: 
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'header'
+          name: 'Authorization'
+          required: true
+          type: 'string'
+        
+        - in: 'query'
+          name: 'page'
+          required: false
+          type: 'integer'
+        
+      responses:
+        '200':
+          description: 'Successfully fetched all Expneses'
+          schema:
+              $ref: '#/definitions/GetExpenseResponse'
+          
+        '401':
+          description: 'Unauthorized'
+        
+        default:
+          description: 'Something went wrong'
+  
+  /expenses/delete-expense/{id}:
+    delete:
+      tags:
+        - 'Expenses'
+      summary: 'Delete an Expense'
+      description: 'Delete an Expense'
+      operationId: deleteExpense
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'header'
+          name: 'Authorization'
+          required: true
+          type: 'string'
+      
+        - in: 'path'
+          name: 'id'
+          type: 'string'
+          required: true
+          
+      responses:
+        '200':
+          description: 'Successfully deleted Expense'
+        '401':
+          description: 'You are not authorized'
+        '404':
+          description: 'Expense not found'
+          
+  /expenses/edit-expense/{id}:
+    put:
+      tags:
+        - 'Expenses'
+      summary: 'Edit an Expense'
+      description: 'Edit an Expense'
+      operationId: editExpense
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'header'
+          name: 'Authorization'
+          type: 'string'
+        
+        - in: 'path'
+          name: 'id'
+          required: true
+          type: 'string'
+          
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            $ref: '#/definitions/ExpenseDetails'
+          
+      responses:
+        '200':
+          description: 'Successfully Edited'
+        '401':
+          description: 'Unauthorized'
+        
+        
+definitions:
+  Login:
+    type: 'object'
+    properties:
+      userExists:
+        type: 'boolean'
+      correctPassword:
+        type: 'boolean'
+      token:
+        type: 'string'
+        
+  SignupCredentials:
+    type: 'object'
+    properties:
+      username:
+        type: 'string'
+        example: 'A'
+      email:
+        type: 'string'
+        example: 'A@gmail.com'
+      password:
+        type: 'string'
+        example: '12345'
+  
+  LoginCredentials:
+    type: 'object'
+    properties:
+      email:
+        type: 'string'
+        example: 'A@gmail.com'
+      password:
+        type: 'string'
+        example: '12345'
+        
+  ExpenseDetails:
+    type: 'object'
+    properties:
+      expenseAmount:
+        type: 'integer'
+        format: 'int32'
+        example: 3200
+      description:
+        type: 'string'
+        example: 'Went to the Movies'
+      category:
+        type: 'string'
+        example: 'Movies'
+  
+  ExpenseResponse:
+    type: 'object'
+    properties:
+      expenseAmount:
+        type: 'integer'
+        format: 'int32'
+        example: 3200
+      description:
+        type: 'string'
+        example: 'Went to the Movies'
+      category:
+        type: 'string'
+        example: 'Movies'
+      createdAt:
+        type: 'string'
+        example: '2023-02-07T06:12:28.036Z'
+      _id:
+        type: 'string'
+        example: '90349hfiuhe934ew343'
+      userId:
+          $ref: '#/definitions/UserDetails'
+          
+  GetExpenseResponse:
+    type: 'object'
+    properties:
+      expenses:
+        type: 'array'
+        items:
+          $ref: '#/definitions/ExpenseDetails'
+      isPremium:
+        type: 'boolean'
+        example: 'false'
+      totalExpenses:
+        type: 'integer'
+        example: 3
+      hasNextPage:
+        type: 'boolean'
+        example: 'false'
+      hasPreviousPage:
+        type: 'boolean'
+        example: 'false'
+      nextPage:
+        type: 'integer'
+        example: 2
+      currentPage:
+        type: 'integer'
+        example: 2
+      previousPage:
+        type: 'integer'
+        example: 1
+      lastPage:
+        type: 'integer'
+        example: 5
+          
+  UserDetails:
+    type: 'object'
+    properties:
+      _id:
+        type: 'string'
+        example: '90349hfiuhe934ew343'
+      username:
+        type: 'string'
+        example: 'A'
+      email:
+        type: 'string'
+        example: 'A@gmail.com'
+      password:
+        type: 'string'
+        example: '12345'
+      isPremium:
+        type: 'boolean'
+        example: 'false'

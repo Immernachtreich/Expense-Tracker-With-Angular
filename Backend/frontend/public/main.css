@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap');
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Assistant', sans-serif;
+
+    background-color: rgb(30, 30, 30);
+    /* background-image: url('https://t3.ftcdn.net/jpg/03/12/40/90/360_F_312409000_eMqNEV0nWOAQT4fT2OWDXpO0r1IJz32U.jpg');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+
+    height: 100%;
+
+    transition: background 0.3s linear,
+    color 0.3s linear;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.Main-Div {
+    width: 100%;
+    padding: 2rem 0;
+    margin: auto;
+}
+
+.Inner-Div {
+    margin: auto;
+    width: 30%;
+    border: 3px solid whitesmoke;
+    padding: 10px;
+}
+
+.Main-Div-H1-Title {
+    margin: 1rem 0;
+    text-align: center;
+    padding: 0;
+    font-weight: normal;
+    color: whitesmoke;
+}
+
+.Expense-Label {
+    text-align: center;
+    width: 100%;
+    color: whitesmoke;
+    margin: auto;
+}
+
+.Form-Inputs {
+
+    text-align: center;
+    display: block;
+
+    width: 80%;
+    height: auto;
+    margin: 1rem auto;
+
+    font-family: inherit;
+    font-size: 15px;
+    
+    background-color: rgb(44, 44, 94);
+    color: whitesmoke;
+    border: 3px solid whitesmoke;
+}
+
+.Select-Inputs {
+    text-align: center;
+    display: block;
+
+    width: 82%;
+    height: 1.7rem;
+    margin: 1rem auto;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    background-color: rgb(44, 44, 94);
+    color: whitesmoke;
+    border: 3px solid whitesmoke;
+    
+}
+
+.main-form {
+    margin: 1rem;
+    text-align: center;
+}
+
+.submit-button {
+
+    margin-top: 2rem;
+
+    border: none;
+    border-radius: 7px;
+    width: 5rem;
+    height: 2rem;
+
+    background-color: rgb(44, 44, 94);
+    color: whitesmoke;
+
+    font-family: inherit;
+    font-size: 15px;
+
+}
+
+.submit-button:hover {
+    
+    border: 2px solid whitesmoke;
+    background-color: rgb(14, 190, 190);
+}
+
+.Main-List {
+
+    color: whitesmoke;
+    list-style: none;
+    width: 40%;
+    margin: auto;
+    padding: 0;
+
+    /* border: 2px solid whitesmoke; */
+
+}
+
+.Expense-List {
+
+    margin: 1rem 2rem;
+    border: 2px solid whitesmoke;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.list-text-div {
+    display: inline-block;
+    width: 60%;
+}
+
+.buttons-div {
+    position: relative;
+    display: inline-block;
+
+    margin-left: 0.5rem;
+}
+
+.Delete-Button {
+    background-color: rgb(44, 44, 94);
+    color: whitesmoke;
+    font-family: inherit;
+    border: 2px solid rgb(219, 81, 81);
+    border-radius: 5px;
+
+    width: 5rem;
+}
+
+.Edit-Button {
+    background-color: rgb(44, 44, 94);
+    color: whitesmoke;
+    font-family: inherit;
+    border: 2px solid rgb(227, 227, 77);
+    border-radius: 5px;
+
+    margin-right: 1rem;
+    width: 5rem;
+
+}
+
+.Edit-Button:hover,
+.Delete-Button:hover {
+    background-color: rgb(12, 142, 142);
+}
+
+.page-buttons {
+    position: relative;
+    left: 45%;
+    margin: 1rem 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid whitesmoke;
+    background-color: rgb(44, 44, 94);
+    border-radius: 10px;
+
+    color: whitesmoke;
+}
+
+.page-buttons:hover,
+.page-buttons:active {
+    background-color: rgb(14, 190, 190);
+    color: rgb(44, 44, 94);
+}
+
+.page-buttons.active {
+    background-color: rgb(14, 190, 190);
+    color: rgb(44, 44, 94);
+}
+
+@media only screen and (max-width: 600px) {
+
+    .Main-Div-H1-Title {
+        margin: 1rem 0;
+        text-align: center;
+        padding: 0;
+        font-weight: normal;
+        color: whitesmoke;
+    }
+    
+    .Expense-Label {
+        text-align: center;
+        width: 100%;
+        color: whitesmoke;
+        margin: auto;
+
+        font-size: 70%;
+    }
+    
+
+    .Select-Inputs {
+
+        text-align: center;
+        display: block;
+
+        width: 105%;
+        height: 1.5rem;
+        margin: 1rem auto;
+
+        font-family: inherit;
+        font-size: 50%;
+        
+        background-color: rgb(44, 44, 94);
+        color: whitesmoke;
+        border: 3px solid whitesmoke;
+    }
+
+    .Form-Inputs {
+
+        text-align: left;
+        display: flex;
+
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+
+        font-family: inherit;
+        font-size: 50%;
+    }
+
+    .submit-button {
+
+        margin-top: 0.5rem;
+    
+        border: none;
+        border-radius: 7px;
+        width: 3rem;
+        height: 1rem;
+    
+        background-color: rgb(44, 44, 94);
+        color: whitesmoke;
+    
+        font-family: inherit;
+        font-size: 50%;
+    
+    }
+
+    .Main-List {
+        
+        font-size: 70%;
+    
+    }
+    
+    .Expense-List {
+        margin: 1rem;
+        font-size: 100%;
+    }
+
+    .buttons-div {
+        position: relative;
+        display: inline-block;
+    
+        margin-top: 0.5rem;
+    }
+
+    .Delete-Button {
+    
+        width: 3rem;
+        font-size: 70%;
+    }
+    
+    .Edit-Button {
+
+        margin-right: 1rem;
+        width: 3rem;
+        
+        font-size: 70%  ;
+    }
+}
+
+/*
+* Dark Mode
+*/
+
+body.dark {
+
+    background-color: whitesmoke;
+    /* background-image: url('https://t3.ftcdn.net/jpg/03/12/40/90/360_F_312409000_eMqNEV0nWOAQT4fT2OWDXpO0r1IJz32U.jpg');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+
+    transition: background 0.3s linear,
+    color 0.3s linear;
+    
+}
+
+.dark-mode-label {
+    user-select: none;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: background 0.3s linear;
+}
+
+
+body.dark .dark-mode-label {
+    background-color: rgb(30, 30, 30);
+}
+
+body.dark .Main-Div h1{
+    color: rgb(44, 44, 94)
+}
+
+body.dark .Inner-Div {
+    border: 3px solid rgb(44, 44, 94);
+}
+
+body.dark .Expense-Label {
+    color: rgb(44, 44, 94);
+}
+
+body.dark .Form-Inputs{
+    border: 3px solid rgb(44, 44, 94)
+}
+
+body.dark .Select-Inputs{
+    border: 3px solid rgb(44, 44, 94)
+}
+
+body.dark .Expense-List {
+    color: rgb(30, 30, 30);
+    border: 3px solid rgb(30, 30, 30);
+}
+
+.toggle-container {
+
+    float: right;
+    margin-top: 1rem;
+}
+
+.toggle-dark-mode {
+    visibility: hidden;
+}

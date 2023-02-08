@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../public/main.css">
+    <link rel="stylesheet" href="../public/popupNotification.css">
+    <link rel="stylesheet" href="../public//report.css">
+
+    <link rel="icon" href="https://www.clipartmax.com/png/middle/36-363115_green-dollar-symbol-png-transparent-image-green-dollar-sign-png.png" type="image/icon type">
+    
+    <title> Report </title>
+
+</head>
+<body>
+    <button class="return-home-button" id="return-home-button"> Home </button>
+    <div class="Main-Div" id="Main-Div">
+
+        <h1 id="Main-Div-H1-Title" class="Main-Div-H1-Title"> Report </h1>
+
+        <!-- <h4 class="main-div-h4"> March </h4> -->
+
+        <label for="rows-select" class="rows-select-label"> Rows per Page </label>
+        <select name="rows-select" id="rows-select" class="rows-select">
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="5" selected> 5 </option>
+            <option value="10"> 10 </option>
+            <option value="20"> 20 </option>
+        </select>
+        <table class="report-table" id="report-table">
+            <!-- <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Category</th>
+            </tr> -->
+            <!-- <tr>
+                <td>12/12/2000</td>
+                <td>4000</td>
+                <td>Paid Rent</td>
+                <td>Rent</td>
+            </tr>
+            <tr>
+                <td>12/12/2000</td>
+                <td>4000</td>
+                <td>Paid Rent</td>
+                <td>Rent</td>
+            </tr> -->
+        </table>
+        
+        <button class="download-report-button" id="download-report-button"> Download Report </button>
+        <button class="past-links-button" id="past-links-button"> Download Past Reports </button>
+        
+        <div class="popup-container" id="popup-container">
+            <div class="popup" id="popup-inner-div">
+                <button id="close">&times;</button>
+            </div>
+        </div>
+
+        <div id="page-buttons-div">
+            <!-- <button class="page-buttons"> 1 </button>
+            <button class="page-buttons"> 2 </button>
+            <button class="page-buttons"> 3 </button> -->
+        </div>
+        
+    </div>
+</body>
+
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+<script src="../scripts/report.js"></script>
+
+</html>

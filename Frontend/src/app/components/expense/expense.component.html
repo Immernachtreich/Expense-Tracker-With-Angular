@@ -1,0 +1,40 @@
+<nav>
+    <button class="premium-btn"> Buy Premium </button>
+    <h1> Expense Tracker </h1>
+    <button class="logout-btn" (click)="logout()"> Logout </button>
+</nav>
+
+<main>
+    <div class="expense-form-div">
+        <form [formGroup]="form" (ngSubmit)="addExpense($event  )">
+            <label for="amount"> Amount </label>
+            <input type="number" name="amount" id="amount" required formControlName="amount">
+            
+            <label for="description"> Description </label>
+            <input type="text" name="description" id="description" required formControlName="description"> 
+            
+            <label for="category"> Category </label>
+            <select name="category" id="category" formControlName="category" required>
+                <option value="movies"> Movies </option>
+                <option value="rent"> Rent </option>
+                <option value="clothes"> Clothes </option>
+                <option value="other"> Other </option>
+            </select>
+            
+            <button type="submit"> Add Expenses </button>
+        </form>
+    </div>
+
+    <div class="expense-list-div">
+        <ul *ngFor="let expense of expenses; trackBy: trackByExpenseId">
+            <li>
+                <span> {{ expense.expenseAmount }} - </span>
+                <span> {{ expense.description }} - </span>
+                <span> {{ expense.category }} </span>
+
+                <button class="edit-button" (click)="editExpense(expense)"> Edit </button>
+                <button class="delete-button" (click)="deleteExpense(expense._id)"> X </button>
+            </li>
+        </ul>
+    </div>
+</main>

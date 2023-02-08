@@ -1,0 +1,58 @@
+.popup-outer-div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    align-items: center;
+
+    div {
+        display: block;
+        margin: auto;
+        width: 40%;
+        margin-top: 10rem;
+
+        height: auto;
+
+        background-color: rgb(69, 69, 69);
+
+        border: 5px solid whitesmoke;
+
+        button {
+            float: right;
+            margin-right: 1rem;
+            margin-top: 1rem;
+
+            border: none;
+            background: none;
+
+            color: whitesmoke;
+            font-size: large;
+            font-weight: bolder;
+        }
+
+        button:hover {
+            font-size: larger;
+        }
+
+        h3 {
+            display: inline-block;
+            background: none;
+            color: whitesmoke;
+            margin-left: 2rem;
+            margin-top: 1rem;
+            font-size: 30px;
+            height: 10%;
+        }
+
+        p {
+            color: whitesmoke;
+            margin-top: 2rem;
+            margin-left: 1rem;
+            word-wrap: break-word;
+            font-size: 20px;
+        }
+    }
+}

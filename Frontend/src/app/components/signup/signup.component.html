@@ -1,0 +1,24 @@
+<h1> Expense Tracker </h1>
+
+<div class="signup-form-div">
+
+    <h3> Signup </h3>
+    <form #signupForm="ngForm">
+        <label for="name-input"> Name </label>
+        <input type="text" id="name-input" name="username" #nameInput [(ngModel)]="credentials.username" >
+
+        <label for="email-input"> Email </label>
+        <input type="email" id="email-input" name="email" #emailInput [(ngModel)]="credentials.email">
+
+        <label for="password-input"> Password </label>
+        <input type="password" id="password-input" name="password" #passwordInput [(ngModel)]="credentials.password">
+
+        <a routerLink="/login"> Already have an account? Click here to Login </a>
+
+        <button type="button" (click)="signup()">
+            Sign Up
+        </button>
+    </form>
+</div>
+
+<!-- <app-popup (closeEvent)="closePopup()" [popupHeading]="popupHeading" [popupText]="popupText" *ngIf="displayPopup"></app-popup> -->
